@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>LONAR'S | Bringing the Comfort Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#home" aria-label="LONAR'S home">
+        <span class="brand-mark">L</span>
+        <span>
+          <strong>LONAR'S</strong>
+          <small>Bringing the Comfort Home</small>
+        </span>
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="#products">Products</a>
+        <a href="basket.html">Basket <span class="basket-count" data-basket-count>0</span></a>
+        <a href="#delivery">Delivery</a>
+        <a href="admin.html">Admin Portal</a>
+      </nav>
+    </header>
+
+    <main id="home">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Soft toilet tissue for homes, shops and offices</p>
+          <h1>LONAR'S</h1>
+          <p class="hero-lede">Affordable tissue packs with free delivery in Alexandra and surrounding areas. Choose your pack, add your delivery address, and pay by EFT, card payment or cash on delivery.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#products">Shop tissues</a>
+            <a class="btn btn-secondary" href="#products">View prices</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section intro-band" aria-label="Why choose us">
+        <div>
+          <p class="eyebrow">Comfort supplied simply</p>
+          <h2>Reliable tissue packs for everyday use.</h2>
+        </div>
+        <p>We supply soft, value-focused tissue packs for households, small businesses, salons, offices, guest houses, events and local stores. Orders are recorded clearly so every pack taken, payment received and delivery address can be managed from the admin dashboard.</p>
+      </section>
+
+      <section class="section" id="products">
+        <div class="section-heading">
+          <p class="eyebrow">Prices and tissue types</p>
+          <h2>Shop LONAR'S tissue packs</h2>
+        </div>
+        <div class="product-grid" id="productGrid"></div>
+        <p class="form-message" id="basketMessage" role="status"></p>
+      </section>
+
+      <section class="section split-section" id="delivery">
+        <div>
+          <p class="eyebrow">Delivery and payments</p>
+          <h2>Orders include delivery address and payment type.</h2>
+          <p>Customers must choose one of the approved payment methods only: EFT, Card Payment or Cash on Delivery. Every order stores the delivery address, customer details, total amount, tissue packs and roll count.</p>
+          <ul class="check-list">
+            <li>Free delivery in Alexandra and surrounding areas</li>
+            <li>4-pack, 9-pack, 16-pack, 24-pack and 48-pack options available</li>
+            <li>Admin records income, expenses, stock taken and order status</li>
+          </ul>
+        </div>
+        <img class="feature-image" src="assets/lorna-deals.jpeg" alt="LONAR'S value deal poster">
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div>
+        <strong>LONAR'S</strong>
+        <span>Bringing the Comfort Home</span>
+      </div>
+      <a href="basket.html">View basket</a>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
