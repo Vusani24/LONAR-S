@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>LONAR'S Basket</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="LONAR'S home">
+        <span class="brand-mark">L</span>
+        <span>
+          <strong>LONAR'S</strong>
+          <small>Basket and checkout</small>
+        </span>
+      </a>
+      <nav class="main-nav" aria-label="Basket navigation">
+        <a href="index.html#products">Products</a>
+        <a href="basket.html">Basket <span class="basket-count" data-basket-count>0</span></a>
+        <a href="admin.html">Admin Portal</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="section basket-section basket-page" id="basket">
+        <div class="section-heading">
+          <p class="eyebrow">Shopping basket</p>
+          <h1>Your basket</h1>
+          <p class="hero-lede">Review selected tissue packs, quantities, pack prices and totals before confirming payment and delivery.</p>
+        </div>
+        <div class="basket-panel">
+          <div class="basket-items" id="basketItems"></div>
+          <div class="basket-summary">
+            <div>
+              <strong>Basket total: <span id="basketTotal">R0</span></strong>
+              <span id="basketRolls">0 rolls selected</span>
+            </div>
+            <a class="btn btn-secondary" href="index.html#products">Continue shopping</a>
+            <a class="btn btn-primary" id="checkoutBtn" href="#order">Confirm payment and delivery</a>
+          </div>
+          <p class="form-message" id="basketMessage" role="status"></p>
+        </div>
+      </section>
+
+      <section class="section order-section" id="order">
+        <div class="section-heading">
+          <p class="eyebrow">Checkout</p>
+          <h2>Confirm payment and delivery</h2>
+        </div>
+        <form class="order-form" id="orderForm">
+          <div class="checkout-review" id="checkoutReview"></div>
+          <div class="form-grid">
+            <label>
+              Full name
+              <input name="customerName" type="text" placeholder="Customer name" required>
+            </label>
+            <label>
+              Phone number
+              <input name="phone" type="tel" placeholder="071 234 5678" required>
+            </label>
+            <label class="wide">
+              Delivery address
+              <textarea name="address" rows="3" placeholder="Street, area and delivery notes" required></textarea>
+            </label>
+            <label>
+              Payment type
+              <select name="paymentType" required>
+                <option value="">Select payment</option>
+                <option>EFT</option>
+                <option>Card Payment</option>
+                <option>Cash on Delivery</option>
+              </select>
+            </label>
+            <label>
+              Delivery date
+              <input name="deliveryDate" type="date" required>
+            </label>
+          </div>
+          <div class="order-summary">
+            <strong>Total: <span id="orderTotal">R0</span></strong>
+            <span id="orderRolls">0 rolls selected</span>
+            <button class="btn btn-primary" type="submit">Submit checkout</button>
+          </div>
+          <p class="form-message" id="orderMessage" role="status"></p>
+        </form>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div>
+        <strong>LONAR'S</strong>
+        <span>Basket and checkout</span>
+      </div>
+      <a href="index.html#products">Back to products</a>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
