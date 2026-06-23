@@ -1,0 +1,27 @@
+{
+  "orders": [],
+  "funds": [],
+  "stock": {
+    "four-pack": 80,
+    "200-2ply-9-pack": 60,
+    "sixteen-pack": 60,
+    "200-2ply-24-pack": 40,
+    "200-2ply-48-pack": 25,
+    "350-2ply-4-pack": 80,
+    "350-2ply-9-pack": 60,
+    "350-2ply-16-pack": 50,
+    "350-2ply-24-pack": 35,
+    "350-2ply-48-pack": 20,
+    "virgin-300-1ply-4-pack": 80,
+    "virgin-300-1ply-9-pack": 60,
+    "virgin-300-1ply-16-pack": 50,
+    "virgin-300-1ply-24-pack": 35,
+    "virgin-300-1ply-48-pack": 20,
+    "recycled-300-1ply-4-pack": 80,
+    "recycled-300-1ply-9-pack": 60,
+    "recycled-300-1ply-16-pack": 50,
+    "recycled-300-1ply-24-pack": 35,
+    "recycled-300-1ply-48-pack": 20
+  },
+  "outOfStock": {}
+}
