@@ -568,7 +568,21 @@ const server = http.createServer(async (req, res) => {
     res.end(data);
   });
 });
-
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "server.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "server.js"
+    }
+  ]
+}
 server.listen(port, () => {
   console.log(`LONAR'S site running at http://localhost:${port}`);
 });
