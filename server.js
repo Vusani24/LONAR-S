@@ -1,10 +1,8 @@
-const http = require("http");
 const fs = require("fs");
 const path = require("path");
 const crypto = require("crypto");
 
 const root = __dirname;
-const port = process.env.PORT || 3201;
 const adminPassword = process.env.ADMIN_PASSWORD || "Olona1995@";
 const dataPath = path.join(root, "data-store.json");
 const sessions = new Set();
@@ -122,13 +120,8 @@ function localReadData() {
     };
   } catch {
     const data = defaultData();
-    localWriteData(data);
     return data;
   }
-}
-
-function localWriteData(data) {
-  fs.writeFileSync(dataPath, JSON.stringify(data, null, 2));
 }
 
 async function supabaseRequest(table, options = {}) {
@@ -233,10 +226,7 @@ async function readData() {
 }
 
 async function writeData(data) {
-  if (!useSupabase) {
-    localWriteData(data);
-    return;
-  }
+  if (!useSupabase) return;
 
   await Promise.all([
     supabaseRequest("orders?id=not.is.null", { method: "DELETE" }),
@@ -539,7 +529,8 @@ async function handleApi(req, res, pathname) {
   return false;
 }
 
-const server = http.createServer(async (req, res) => {
+// Vercel serverless export
+module.exports = async (req, res) => {
   const requestPath = decodeURIComponent(req.url.split("?")[0]);
 
   try {
@@ -567,8 +558,13 @@ const server = http.createServer(async (req, res) => {
     res.writeHead(200, { "Content-Type": types[path.extname(filePath)] || "application/octet-stream" });
     res.end(data);
   });
-});
+};
 
-server.listen(port, () => {
-  console.log(`LONAR'S site running at http://localhost:${port}`);
-});
+// Local dev support
+if (require.main === module) {
+  const http = require("http");
+  const port = process.env.PORT || 3201;
+  http.createServer(module.exports).listen(port, () => {
+    console.log(`LONAR'S site running at http://localhost:${port}`);
+  });
+}
