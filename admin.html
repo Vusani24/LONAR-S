@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>LONAR'S Admin Portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="LONAR'S home">
+        <span class="brand-mark">L</span>
+        <span>
+          <strong>LONAR'S</strong>
+          <small>Admin Portal</small>
+        </span>
+      </a>
+      <nav class="main-nav" aria-label="Admin navigation">
+        <a href="index.html">Website</a>
+        <a href="basket.html#order">Checkout Form</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="section admin-section admin-page" id="admin">
+        <div class="section-heading">
+          <p class="eyebrow">Admin portal</p>
+          <h1>Track performance, funds and tissue stock</h1>
+          <p class="hero-lede">Manage orders, income, expenses, delivery details, payment type and every tissue pack taken.</p>
+        </div>
+        <div class="admin-login" id="adminLogin">
+          <label>
+            Admin password
+            <input id="adminPassword" type="password" placeholder="Enter admin password">
+          </label>
+          <button class="btn btn-primary" id="loginBtn" type="button">Login</button>
+          <p class="form-message" id="loginMessage"></p>
+        </div>
+
+        <div class="dashboard hidden" id="dashboard">
+          <div class="admin-toolbar">
+            <div>
+              <strong>Admin is active</strong>
+              <span>When hosted with the included server, orders, income, expenses and stock are shared with the public website.</span>
+            </div>
+            <button class="btn btn-secondary" id="exportBtn" type="button">Export orders CSV</button>
+          </div>
+
+          <div class="metric-grid">
+            <article class="metric">
+              <span>Total income</span>
+              <strong id="metricIncome">R0</strong>
+            </article>
+            <article class="metric">
+              <span>Total expenses</span>
+              <strong id="metricExpenses">R0</strong>
+            </article>
+            <article class="metric">
+              <span>Net funds</span>
+              <strong id="metricNet">R0</strong>
+            </article>
+            <article class="metric">
+              <span>Tissues taken</span>
+              <strong id="metricRolls">0 rolls</strong>
+            </article>
+          </div>
+
+          <div class="admin-panels">
+            <section class="panel">
+              <h3>Funds</h3>
+              <p class="panel-note">Income is recorded automatically when a customer checkout is saved. Use this form only for expenses.</p>
+              <form id="fundForm" class="stack-form">
+                <input name="fundType" type="hidden" value="expense">
+                <label>
+                  Expense amount
+                  <input name="amount" type="number" min="1" step="1" placeholder="0" required>
+                </label>
+                <label>
+                  Expense note
+                  <input name="note" type="text" placeholder="Stock bought, delivery fuel, packaging">
+                </label>
+                <button class="btn btn-primary" type="submit">Save expense</button>
+              </form>
+              <div class="mini-list" id="fundList"></div>
+            </section>
+
+            <section class="panel">
+              <h3>Stock control</h3>
+              <p class="form-message" id="stockMessage" role="status"></p>
+              <div class="stock-list" id="stockList"></div>
+            </section>
+          </div>
+
+          <section class="panel">
+            <div class="panel-heading">
+              <h3>Orders and tissues taken</h3>
+              <button class="btn btn-secondary" id="clearDemoBtn" type="button">Clear orders and funds</button>
+            </div>
+            <p class="panel-note">Use Download PDF to save the receipt to your computer or phone downloads folder.</p>
+            <p class="panel-note">Clearing records removes orders and fund records only. Stock control stays unchanged.</p>
+            <p class="panel-note">When hosted with the included server, new public checkout orders appear here automatically every 15 seconds after admin login.</p>
+            <p class="form-message" id="orderStatusMessage" role="status"></p>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Order</th>
+                    <th>Customer</th>
+                    <th>Delivery address</th>
+                    <th>Payment</th>
+                    <th>Items</th>
+                    <th>Total</th>
+                    <th>Status</th>
+                    <th>Receipt</th>
+                  </tr>
+                </thead>
+                <tbody id="ordersTable"></tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="panel">
+            <h3>Performance summary</h3>
+            <div class="performance-grid">
+              <div>
+                <span>Orders received</span>
+                <strong id="perfOrders">0</strong>
+              </div>
+              <div>
+                <span>Average order value</span>
+                <strong id="perfAverage">R0</strong>
+              </div>
+              <div>
+                <span>Best selling type</span>
+                <strong id="perfBest">None yet</strong>
+              </div>
+              <div>
+                <span>Payment split</span>
+                <strong id="perfPayments">No payments yet</strong>
+              </div>
+            </div>
+            <div class="chart-wrap">
+              <div class="panel-heading">
+                <h3>Monthly performance</h3>
+                <span id="chartYear"></span>
+              </div>
+              <div class="bar-chart" id="monthlyChart"></div>
+            </div>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div>
+        <strong>LONAR'S</strong>
+        <span>Admin Portal</span>
+      </div>
+      <a href="index.html">Back to website</a>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
